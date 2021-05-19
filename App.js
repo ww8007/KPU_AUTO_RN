@@ -35,7 +35,7 @@ export default function App() {
   const [id, onChangeText] = React.useState("2015130035");
   const [pw, onChangePw] = React.useState("wy3227164!");
   const [result, onChangeResult] = React.useState("진행중...");
-  const onSubmit = ({ id, pw }) => {
+  const onSubmit = () => {
     oneDay({ id, pw }).then(function (response) {
       const { message } = JSON.parse(response.data.body);
       onChangeResult(message);
@@ -43,9 +43,11 @@ export default function App() {
   };
   const awaitSendRequest = () => {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve("api ok");
-      }, 2500);
+      oneDay({ id, pw }).then(function (response) {
+        const { message } = JSON.parse(response.data.body);
+        onChangeResult(message);
+        resolve(message);
+      });
     });
   };
   const sendRequest = () => {
@@ -86,11 +88,18 @@ export default function App() {
           />
         </View>
         <View style={styles.blankView}></View>
-        <ButtonSpinner onPress={sendRequest}>
-          <Apple name="apple1" size={20} color="black" />
-          <Text style={{ color: "black" }}> 하루 외박 신청</Text>
-        </ButtonSpinner>
-        <ButtonSpinner onPress={sendRequest}>
+        {result === "외박신청 완료" ? (
+          <ButtonSpinner onPress={awaitSendRequest}>
+            <Apple name="checkcircle" size={20} color="black" />
+            <Text style={{ color: "black" }}> 신청 완료</Text>
+          </ButtonSpinner>
+        ) : (
+          <ButtonSpinner onPress={awaitSendRequest}>
+            <Apple name="apple1" size={20} color="black" />
+            <Text style={{ color: "black" }}> 하루 외박 신청</Text>
+          </ButtonSpinner>
+        )}
+        <ButtonSpinner onPress={awaitSendRequest}>
           <Apple name="aliwangwang" size={20} color="black" />
           <Text style={{ color: "black" }}> 일주일 외박 신청</Text>
         </ButtonSpinner>
