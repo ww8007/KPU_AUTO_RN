@@ -8,7 +8,7 @@ export default function Buttons({ user }) {
    const [error, onChangeError] = React.useState("");
    const awaitSendRequest = () => {
       return new Promise((resolve, reject) => {
-         getDummy2()
+         getDummy()
             .then(function (response) {
                onChangeResult("완료");
                resolve(response);
@@ -19,6 +19,9 @@ export default function Buttons({ user }) {
             });
       });
    };
+   const onChangeRe = () => {
+      onChangeError("");
+   };
    return (
       <>
          {result ? (
@@ -27,8 +30,8 @@ export default function Buttons({ user }) {
                <Text style={{ color: "black" }}> 신청 완료</Text>
             </ButtonSpinner>
          ) : error ? (
-            <ButtonSpinner textButton={"Text Button"}>
-               <Apple name="checkcircle" size={20} color="black" />
+            <ButtonSpinner textButton={"Text Button"} onPress={onChangeRe}>
+               <Apple name="closecircleo" size={20} color="black" />
                <Text style={{ color: "black" }}>서버 오류</Text>
             </ButtonSpinner>
          ) : (
@@ -37,7 +40,6 @@ export default function Buttons({ user }) {
                <Text style={{ color: "black" }}> {user.duration}</Text>
             </ButtonSpinner>
          )}
-         {result}
       </>
    );
 }
