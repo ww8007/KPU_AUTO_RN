@@ -9,7 +9,7 @@ import {
   TextInput,
 } from "react-native";
 import axios from "axios";
-import { oneDay } from "./lib/api/post";
+import { oneDay, getDummy } from "./lib/api/post";
 import LoadingButton from "./Loading";
 import AnimateLoadingButton from "react-native-animate-loading-button";
 import ButtonSpinner from "react-native-button-spinner";
@@ -20,39 +20,57 @@ import Apple from "react-native-vector-icons/AntDesign";
 
 const Separator = () => <View style={styles.separator} />;
 
-function getHeader() {
-  return fetch("https://reactnative.dev/movies.json")
-    .then((response) => response.json())
-    .then((responseJson) => {
-      return responseJson;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
-
 export default function App() {
   const [id, onChangeText] = React.useState("2015130035");
   const [pw, onChangePw] = React.useState("wy3227164!");
-  const [result, onChangeResult] = React.useState("진행중...");
-  const onSubmit = () => {
-    oneDay({ id, pw }).then(function (response) {
-      const { message } = JSON.parse(response.data.body);
-      onChangeResult(message);
-    });
-  };
+  const [result, onChangeResult] = React.useState("진행중..");
+  const [result2, onChangeResult2] = React.useState("진행중..");
+  const [result3, onChangeResult3] = React.useState("진행중..");
+  const [result4, onChangeResult4] = React.useState("진행중..");
+  const [mode, onChangeMode] = React.useState("1");
+
   const awaitSendRequest = () => {
     return new Promise((resolve, reject) => {
-      oneDay({ id, pw }).then(function (response) {
+      // oneDay({ id, pw, mode }).then(function (response) {
+      //   const { message } = JSON.parse(response.data.body);
+      //   onChangeResult(message);
+      //   resolve(message);
+      // });
+      onChangeResult("외박신청 완료");
+      resolve("hi");
+    });
+  };
+
+  const awaitSendRequest2 = () => {
+    return new Promise((resolve, reject) => {
+      getDummy().then(function (response) {
+        console.log(response);
+        onChangeResult2("외박신청 완료");
+        resolve(response);
+      });
+    });
+  };
+  const awaitSendRequest3 = (mode) => {
+    return new Promise((resolve, reject) => {
+      oneDay({ id, pw, mode }).then(function (response) {
         const { message } = JSON.parse(response.data.body);
+
         onChangeResult(message);
         resolve(message);
       });
     });
   };
-  const sendRequest = () => {
-    return new Promise(() => {});
+  const awaitSendRequest4 = (mode) => {
+    return new Promise((resolve, reject) => {
+      oneDay({ id, pw, mode }).then(function (response) {
+        const { message } = JSON.parse(response.data.body);
+
+        onChangeResult(message);
+        resolve(message);
+      });
+    });
   };
+
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -67,9 +85,7 @@ export default function App() {
           ></TextInput>
           <TextInput
             style={styles.inputIdPw}
-            defaultValue="아이디"
             autoCompleteType="username"
-            onChangeText={(text) => onChangeText(text)}
             value={id}
           />
         </View>
@@ -80,8 +96,7 @@ export default function App() {
           ></TextInput>
           <TextInput
             style={styles.inputIdPw}
-            defaultValue="아이디"
-            autoCompleteType="username"
+            autoCompleteType="password"
             secureTextEntry={true}
             onChangeText={(text) => onChangeText(text)}
             value={pw}
@@ -89,7 +104,7 @@ export default function App() {
         </View>
         <View style={styles.blankView}></View>
         {result === "외박신청 완료" ? (
-          <ButtonSpinner onPress={awaitSendRequest}>
+          <ButtonSpinner textButton={"Text Button"}>
             <Apple name="checkcircle" size={20} color="black" />
             <Text style={{ color: "black" }}> 신청 완료</Text>
           </ButtonSpinner>
@@ -99,9 +114,24 @@ export default function App() {
             <Text style={{ color: "black" }}> 하루 외박 신청</Text>
           </ButtonSpinner>
         )}
-        <ButtonSpinner onPress={awaitSendRequest}>
+        {result2 === "외박신청 완료" ? (
+          <ButtonSpinner textButton={"Text Button"}>
+            <Apple name="checkcircle" size={20} color="black" />
+            <Text style={{ color: "black" }}> 신청 완료</Text>
+          </ButtonSpinner>
+        ) : (
+          <ButtonSpinner onPress={awaitSendRequest2}>
+            <Apple name="aliwangwang" size={20} color="black" />
+            <Text style={{ color: "black" }}> 1주 외박 신청</Text>
+          </ButtonSpinner>
+        )}
+        <ButtonSpinner onPress={awaitSendRequest3}>
           <Apple name="aliwangwang" size={20} color="black" />
-          <Text style={{ color: "black" }}> 일주일 외박 신청</Text>
+          <Text style={{ color: "black" }}> 2주 외박 신청</Text>
+        </ButtonSpinner>
+        <ButtonSpinner onPress={awaitSendRequest4}>
+          <Apple name="aliwangwang" size={20} color="black" />
+          <Text style={{ color: "black" }}> 한 달 외박 신청</Text>
         </ButtonSpinner>
         <View style={styles.blankView}></View>
       </SafeAreaView>
