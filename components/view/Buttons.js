@@ -26,17 +26,20 @@ export default function Buttons({ user }) {
       <>
          {result ? (
             <ButtonSpinner textButton={"Text Button"}>
-               <Apple name="checkcircle" size={20} color="black" />
+               <Apple name="checkcircleo" size={20} color="black" />
+               <Text>{"  "}</Text>
                <Text style={{ color: "black" }}> 신청 완료</Text>
             </ButtonSpinner>
          ) : error ? (
             <ButtonSpinner textButton={"Text Button"} onPress={onChangeRe}>
                <Apple name="closecircleo" size={20} color="black" />
+               <Text>{"  "}</Text>
                <Text style={{ color: "black" }}>서버 오류</Text>
             </ButtonSpinner>
          ) : (
             <ButtonSpinner onPress={awaitSendRequest}>
-               <Apple name="checkcircle" size={20} color="black" />
+               <Apple name="apple1" size={20} color="black" />
+               <Text>{"  "}</Text>
                <Text style={{ color: "black" }}> {user.duration}</Text>
             </ButtonSpinner>
          )}

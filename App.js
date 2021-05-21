@@ -27,14 +27,18 @@ export default function App() {
    const [users, setUsers] = React.useState([
       {
          id: 1,
-         duration: "1주 외박 신청",
+         duration: "1일 외박 신청",
       },
       {
          id: 2,
-         duration: "2주 외박 신청",
+         duration: "1주 외박 신청",
       },
       {
          id: 3,
+         duration: "2주 외박 신청",
+      },
+      {
+         id: 4,
          duration: "한 달 외박 신청",
       },
    ]);
@@ -57,7 +61,6 @@ export default function App() {
          <SafeAreaView style={styles.container}>
             <View style={styles.blankView}></View>
             <Icons name="power-sleep" size={80} style={styles.title} />
-
             <View style={{ flex: 2 }}></View>
             <View style={styles.inputWithString}>
                <TextInput
