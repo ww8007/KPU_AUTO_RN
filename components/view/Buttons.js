@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ButtonSpinner from "react-native-button-spinner";
-import Apple from "react-native-vector-icons/AntDesign";
+import Apple from "react-native-vector-icons/FontAwesome5";
 import { oneDay, getDummy, getDummy2 } from "../../lib/api/post";
 export default function Buttons({ user }) {
    const [result, onChangeResult] = React.useState("");
@@ -41,7 +41,7 @@ export default function Buttons({ user }) {
                <Apple
                   name={user.icon}
                   size={20}
-                  color="white"
+                  color={user.color}
                   style={{ height: "120%", marginBottom: 2 }}
                />
                <Text>{"  "}</Text>

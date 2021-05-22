@@ -32,22 +32,26 @@ export default function App() {
       {
          id: 1,
          duration: "1일 외박 신청",
-         icon: "codesquare",
+         icon: "carrot",
+         color: "orange",
       },
       {
          id: 2,
          duration: "1주 외박 신청",
-         icon: "qrcode",
+         icon: "seedling",
+         color: "green",
       },
       {
          id: 3,
          duration: "2주 외박 신청",
-         icon: "folder1",
+         icon: "dog",
+         color: "brown",
       },
       {
          id: 4,
          duration: "한 달 외박 신청",
-         icon: "apple1",
+         icon: "crow",
+         color: "green",
       },
    ]);
    const [mode, onChangeMode] = React.useState("1");
@@ -102,13 +106,12 @@ export default function App() {
             </View>
             <View style={styles.blankView}></View>
 
-            <Image style={styles.stretch} source={image} />
-            <Image style={styles.stretch2} source={image2} />
-
             {users.map((user) => (
                <Buttons user={user} key={user.id}></Buttons>
             ))}
             <View style={styles.blankView}></View>
+            <Image style={styles.stretch} source={image} />
+            <Image style={styles.stretch2} source={image2} />
          </SafeAreaView>
       </LinearGradient>
    );
@@ -160,7 +163,7 @@ const styles = StyleSheet.create({
       resizeMode: "stretch",
 
       flex: 4,
-      width: "95%",
+      width: "120%",
    },
    inputString: {
       flex: 1,
