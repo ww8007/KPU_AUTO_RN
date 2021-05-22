@@ -4,54 +4,54 @@ import ButtonSpinner from "react-native-button-spinner";
 import Apple from "react-native-vector-icons/AntDesign";
 import { oneDay, getDummy, getDummy2 } from "../../lib/api/post";
 export default function Buttons({ user }) {
-   const [result, onChangeResult] = React.useState("");
-   const [error, onChangeError] = React.useState("");
-   const awaitSendRequest = () => {
-      return new Promise((resolve, reject) => {
-         getDummy()
-            .then(function (response) {
-               onChangeResult("완료");
-               resolve(response);
-            })
-            .catch(function (error) {
-               onChangeError("실패");
-               resolve(error);
-            });
-      });
-   };
-   const onChangeRe = () => {
-      onChangeError("");
-   };
-   return (
-      <>
-         {result ? (
-            <ButtonSpinner textButton={"Text Button"}>
-               <Apple name="checkcircleo" size={20} color="black" />
-               <Text>{"  "}</Text>
-               <Text style={{ color: "black" }}> 신청 완료</Text>
-            </ButtonSpinner>
-         ) : error ? (
-            <ButtonSpinner textButton={"Text Button"} onPress={onChangeRe}>
-               <Apple name="closecircleo" size={20} color="black" />
-               <Text>{"  "}</Text>
-               <Text style={{ color: "black" }}>서버 오류</Text>
-            </ButtonSpinner>
-         ) : (
-            <ButtonSpinner onPress={awaitSendRequest}>
-               <Apple name="apple1" size={20} color="black" />
-               <Text>{"  "}</Text>
-               <Text style={{ color: "black" }}> {user.duration}</Text>
-            </ButtonSpinner>
-         )}
-      </>
-   );
+  const [result, onChangeResult] = React.useState("");
+  const [error, onChangeError] = React.useState("");
+  const awaitSendRequest = () => {
+    return new Promise((resolve, reject) => {
+      getDummy()
+        .then(function (response) {
+          onChangeResult("완료");
+          resolve(response);
+        })
+        .catch(function (error) {
+          onChangeError("실패");
+          resolve(error);
+        });
+    });
+  };
+  const onChangeRe = () => {
+    onChangeError("");
+  };
+  return (
+    <>
+      {result ? (
+        <ButtonSpinner textButton={"Text Button"}>
+          <Apple name="checkcircleo" size={20} color="white" />
+          <Text>{"  "}</Text>
+          <Text style={{ color: "white" }}> 신청 완료</Text>
+        </ButtonSpinner>
+      ) : error ? (
+        <ButtonSpinner textButton={"Text Button"} onPress={onChangeRe}>
+          <Apple name="closecircleo" size={20} color="white" />
+          <Text>{"  "}</Text>
+          <Text style={{ color: "white" }}>서버 오류</Text>
+        </ButtonSpinner>
+      ) : (
+        <ButtonSpinner onPress={awaitSendRequest}>
+          <Apple name={user.icon} size={20} color="white" />
+          <Text>{"  "}</Text>
+          <Text style={{ color: "white" }}> {user.duration}</Text>
+        </ButtonSpinner>
+      )}
+    </>
+  );
 }
 
 const styles = StyleSheet.create({
-   container: {
-      flex: 1,
-      backgroundColor: "#fff",
-      alignItems: "center",
-      justifyContent: "center",
-   },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
