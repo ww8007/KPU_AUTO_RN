@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ButtonSpinner from "react-native-button-spinner";
 import Apple from "react-native-vector-icons/FontAwesome5";
+import Apple2 from "react-native-vector-icons/AntDesign";
 import { oneDay, getDummy, getDummy2 } from "../../lib/api/post";
 export default function Buttons({ user }) {
    const [result, onChangeResult] = React.useState("");
@@ -26,13 +27,23 @@ export default function Buttons({ user }) {
       <>
          {result ? (
             <ButtonSpinner textButton={"Text Button"}>
-               <Apple name="checkcircleo" size={20} color="white" />
+               <Apple2
+                  name="checkcircleo"
+                  size={20}
+                  color="white"
+                  style={{ height: "120%", marginBottom: 2 }}
+               />
                <Text>{"  "}</Text>
                <Text style={{ color: "white" }}> 신청 완료</Text>
             </ButtonSpinner>
          ) : error ? (
             <ButtonSpinner textButton={"Text Button"} onPress={onChangeRe}>
-               <Apple name="closecircleo" size={20} color="white" />
+               <Apple2
+                  name="closecircleo"
+                  size={20}
+                  color="white"
+                  style={{ height: "120%", marginBottom: 2 }}
+               />
                <Text>{"  "}</Text>
                <Text style={{ color: "white" }}>서버 오류</Text>
             </ButtonSpinner>
