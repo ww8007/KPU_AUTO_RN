@@ -145,11 +145,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   inputIdPw: {
-    height: 50,
+    height: 40,
     color: "white",
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 30,
+    borderColor: "white",
+    borderRadius: 10,
+    borderWidth: 0.5,
+    marginRight: 15,
     paddingLeft: 10,
     flex: 8,
     marginBottom: 10,
@@ -174,6 +175,8 @@ const styles = StyleSheet.create({
   },
   inputString: {
     flex: 1,
+    paddingLeft: 13,
+
     color: "white",
   },
   blankView: {

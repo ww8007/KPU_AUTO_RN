@@ -41,7 +41,7 @@ export default function Buttons({ user }) {
   return (
     <>
       {result ? (
-        <ButtonSpinner textButton={"Text Button"}>
+        <ButtonSpinner style={styles.buttonBorder} textButton={"Text Button"}>
           <Apple2
             name="checkcircleo"
             size={20}
@@ -52,7 +52,11 @@ export default function Buttons({ user }) {
           <Text style={{ color: "white" }}> 신청 완료</Text>
         </ButtonSpinner>
       ) : error ? (
-        <ButtonSpinner textButton={"Text Button"} onPress={onChangeRe}>
+        <ButtonSpinner
+          style={styles.buttonBorder}
+          textButton={"Text Button"}
+          onPress={onChangeRe}
+        >
           <Apple2
             name="closecircleo"
             size={20}
@@ -63,12 +67,12 @@ export default function Buttons({ user }) {
           <Text style={{ color: "white" }}>서버 오류</Text>
         </ButtonSpinner>
       ) : (
-        <ButtonSpinner onPress={awaitSendRequest}>
+        <ButtonSpinner style={styles.buttonBorder} onPress={awaitSendRequest}>
           <Apple
             name={user.icon}
             size={20}
             color={user.color}
-            style={{ height: "120%", marginBottom: 2 }}
+            style={{ height: "120%", marginBottom: -2 }}
           />
           <Text>{"  "}</Text>
           <Text style={{ color: "white" }}> {user.duration}</Text>
@@ -84,5 +88,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  buttonBorder: {
+    color: "white",
+    borderColor: "white",
+    borderRadius: 10,
+    borderWidth: 0.7,
   },
 });
