@@ -39,14 +39,14 @@ export default function App() {
     {
       id: 3,
       duration: "2주 외박 신청",
-      icon: "dog",
-      color: "#8B5927",
+      icon: "cannabis",
+      color: "#FF4646",
     },
     {
       id: 4,
-      duration: "한 달 외박 신청",
-      icon: "crow",
-      color: "green",
+      duration: "한달 외박 신청",
+      icon: "tint",
+      color: "#00E1FF",
     },
   ]);
 
@@ -149,26 +149,28 @@ const styles = StyleSheet.create({
     color: "white",
     borderColor: "gray",
     borderWidth: 1,
-    borderRadius: 11,
+    borderRadius: 30,
     paddingLeft: 10,
     flex: 8,
     marginBottom: 10,
   },
   stretch: {
     alignSelf: "flex-end",
-    marginLeft: 30,
+    marginLeft: 10,
     flexDirection: "row-reverse",
-    flex: 2,
-    width: 60,
-    height: 70,
+    flex: 3,
+    width: 70,
+    height: 100,
     resizeMode: "stretch",
   },
   stretch2: {
     alignSelf: "center",
     resizeMode: "stretch",
+    marginTop: -3,
 
     flex: 4,
     width: "120%",
+    marginBottom: -40,
   },
   inputString: {
     flex: 1,

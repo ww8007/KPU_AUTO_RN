@@ -57,13 +57,13 @@ export default function Buttons({ user }) {
             name="closecircleo"
             size={20}
             color="white"
-            style={{ height: "120%", marginBottom: 2 }}
+            style={{ height: "120%", marginBottom: -2 }}
           />
           <Text>{"  "}</Text>
           <Text style={{ color: "white" }}>서버 오류</Text>
         </ButtonSpinner>
       ) : (
-        <ButtonSpinner onPress={createTwoButtonAlert}>
+        <ButtonSpinner onPress={awaitSendRequest}>
           <Apple
             name={user.icon}
             size={20}
