@@ -23,6 +23,33 @@ const Separator = () => <View style={styles.separator} />;
 export default function App() {
   const [id, onChangeText] = React.useState("");
   const [pw, onChangePw] = React.useState("");
+  const [backGradient, onChangeGradient] = React.useState([
+    {
+      color: ["#00008C", "#3b5998", "#4c669f"],
+    },
+    {
+      color: ["#000000", "#434343"],
+    },
+    {
+      color: ["#000C40", "#F0F2F0"],
+    },
+    {
+      color: ["#F0F2F0", "#000C40"],
+    },
+    {
+      color: ["#000046", "#1CB5E0"],
+    },
+    {
+      color: ["#16222A", "#3A6073"],
+    },
+    {
+      color: ["#191654", "#43C6AC"],
+    },
+    {
+      color: ["#43C6AC", "#191654"],
+    },
+  ]);
+
   const [users, setUsers] = React.useState([
     {
       id: 1,
@@ -74,10 +101,7 @@ export default function App() {
   };
 
   return (
-    <LinearGradient
-      colors={["#192f6a", "#3b5998", "#4c669f"]}
-      style={styles.container}
-    >
+    <LinearGradient colors={backGradient[2].color} style={styles.container}>
       <SafeAreaView style={styles.items}>
         <View style={styles.blankView}></View>
         <Icons name="power-sleep" size={80} style={styles.title} />
@@ -160,8 +184,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     flexDirection: "row-reverse",
     flex: 3,
-    width: 70,
-    height: 100,
+    width: 50,
+    height: 60,
     resizeMode: "stretch",
   },
   stretch2: {
