@@ -72,7 +72,7 @@ export default function Buttons({ user }) {
             name={user.icon}
             size={20}
             color={user.color}
-            style={{ height: "120%", marginBottom: -2 }}
+            style={{ height: "120%", marginBottom: -2, opacity: 0.8 }}
           />
           <Text>{"  "}</Text>
           <Text style={{ color: "white" }}> {user.duration}</Text>

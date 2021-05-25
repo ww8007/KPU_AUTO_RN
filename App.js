@@ -48,6 +48,9 @@ export default function App() {
     {
       color: ["#43C6AC", "#191654"],
     },
+    {
+      color: ["#2ebf91", "#8360c3"],
+    },
   ]);
 
   const [users, setUsers] = React.useState([
