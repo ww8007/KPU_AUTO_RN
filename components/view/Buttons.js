@@ -68,14 +68,11 @@ export default function Buttons({ user }) {
         </ButtonSpinner>
       ) : (
         <ButtonSpinner style={styles.buttonBorder} onPress={awaitSendRequest}>
-          <Apple
-            name={user.icon}
-            size={20}
-            color={user.color}
-            style={{ height: "120%", marginBottom: -2, opacity: 0.8 }}
-          />
           <Text>{"  "}</Text>
-          <Text style={{ color: "white" }}> {user.duration}</Text>
+          <Text style={{ color: user.color, fontSize: 17 }}>
+            {" "}
+            {user.duration}
+          </Text>
         </ButtonSpinner>
       )}
     </>
@@ -94,5 +91,9 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderRadius: 10,
     borderWidth: 0.7,
+  },
+  discussion: {
+    color: "#292A0A",
+    fontSize: 17,
   },
 });

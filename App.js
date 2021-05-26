@@ -58,25 +58,25 @@ export default function App() {
       id: 1,
       duration: "1일 외박 신청",
       icon: "carrot",
-      color: "#E56D29",
+      color: "black",
     },
     {
       id: 2,
       duration: "1주 외박 신청",
       icon: "seedling",
-      color: "green",
+      color: "black",
     },
     {
       id: 3,
       duration: "2주 외박 신청",
       icon: "cannabis",
-      color: "#FF4646",
+      color: "black",
     },
     {
       id: 4,
       duration: "한달 외박 신청",
       icon: "tint",
-      color: "#00E1FF",
+      color: "black",
     },
   ]);
 
