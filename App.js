@@ -55,25 +55,25 @@ export default function App() {
 
   const [users, setUsers] = React.useState([
     {
-      id: 1,
+      mode: 1,
       duration: "1일 외박 신청",
       icon: "carrot",
       color: "#E56D29",
     },
     {
-      id: 2,
+      mode: 2,
       duration: "1주 외박 신청",
       icon: "seedling",
       color: "green",
     },
     {
-      id: 3,
+      mode: 3,
       duration: "2주 외박 신청",
       icon: "cannabis",
       color: "#FF4646",
     },
     {
-      id: 4,
+      mode: 4,
       duration: "한달 외박 신청",
       icon: "tint",
       color: "#00E1FF",
@@ -110,24 +110,18 @@ export default function App() {
         <Icons name="power-sleep" size={80} style={styles.title} />
         <View style={{ flex: 2 }}></View>
         <View style={styles.inputWithString}>
-          <TextInput
-            style={styles.inputString}
-            defaultValue="I D  : "
-          ></TextInput>
+          <Text style={[styles.inputString, { marginTop: 13 }]}>I D :</Text>
           <TextInput
             style={styles.inputIdPw}
             autoCompleteType="username"
+            editable={true}
             value={id}
             autoCapitalize="none"
             onChangeText={(id) => onChangeText(id)}
           />
         </View>
         <View style={styles.inputWithString}>
-          <TextInput
-            style={styles.inputString}
-            defaultValue="PW : "
-            placeholderTextColor="white"
-          ></TextInput>
+          <Text style={[styles.inputString, { marginTop: 13 }]}>PW :</Text>
           <TextInput
             style={styles.inputIdPw}
             autoCompleteType="password"
@@ -139,7 +133,7 @@ export default function App() {
         <View style={styles.blankView}></View>
 
         {users.map((user) => (
-          <Buttons user={user} key={user.id}></Buttons>
+          <Buttons user={user} key={user.mode} id={id} pw={pw}></Buttons>
         ))}
         <View style={styles.blankView}></View>
         <Image style={styles.stretch} source={image} />
