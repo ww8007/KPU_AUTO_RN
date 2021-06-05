@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "KPU_AUTO_RN",
+    "name": "외박 자동신청",
     "slug": "KPU_AUTO_RN",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,6 +28,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "id, pw는 서버에 저장되지 않고 암호화되어서 전송되니 걱정 안하셔도 됩니다.😃"
   }
 }

@@ -4,18 +4,29 @@ import ButtonSpinner from "react-native-button-spinner";
 import Apple from "react-native-vector-icons/FontAwesome5";
 import Apple2 from "react-native-vector-icons/AntDesign";
 import { oneDay, getDummy, getDummy2 } from "../../lib/api/post";
-export default function Buttons({ user }) {
+export default function Buttons({ user, id, pw }) {
   const [result, onChangeResult] = React.useState("");
   const [error, onChangeError] = React.useState("");
+  const [pressOk, onPressOk] = React.useState("");
   const awaitSendRequest = () => {
     return new Promise((resolve, reject) => {
-      getDummy2()
+      const mode = user.mode;
+      oneDay({ id, pw, mode })
         .then(function (response) {
-          onChangeResult("완료");
+          let result = response.data.body;
+          const obj = JSON.parse(result);
+          if (obj.message === "외박신청 완료") {
+            onChangeResult("완료");
+          } else if (obj.message === "로그인 실패") {
+            onChangeError("로그인 실패");
+          } else {
+            onChangeError("서버 오류");
+            resolve(error);
+          }
           resolve(response);
         })
         .catch(function (error) {
-          onChangeError("실패");
+          onChangeResult("완료");
           resolve(error);
         });
     });
@@ -31,10 +42,13 @@ export default function Buttons({ user }) {
       [
         {
           text: "취소",
-          onPress: () => console.log("Cancel Pressed"),
+          onPress: () => onPressOk("f"),
           style: "cancel",
         },
-        { text: "확인", onPress: () => awaitSendRequest() },
+        {
+          text: "확인",
+          onPress: () => onPressOk("t"),
+        },
       ],
       { cancelable: false }
     );
@@ -46,7 +60,7 @@ export default function Buttons({ user }) {
             name="checkcircleo"
             size={20}
             color="white"
-            style={{ height: "120%", marginBottom: 2 }}
+            style={{ alignContent: "center" }}
           />
           <Text>{"  "}</Text>
           <Text style={{ color: "white" }}> 신청 완료</Text>
@@ -61,10 +75,10 @@ export default function Buttons({ user }) {
             name="closecircleo"
             size={20}
             color="white"
-            style={{ height: "120%", marginBottom: -2 }}
+            style={{ alignContent: "center" }}
           />
           <Text>{"  "}</Text>
-          <Text style={{ color: "white" }}>서버 오류</Text>
+          <Text style={{ color: "white" }}>{error}</Text>
         </ButtonSpinner>
       ) : (
         <ButtonSpinner style={styles.buttonBorder} onPress={awaitSendRequest}>
@@ -72,7 +86,7 @@ export default function Buttons({ user }) {
             name={user.icon}
             size={20}
             color={user.color}
-            style={{ height: "120%", marginBottom: -2, opacity: 0.8 }}
+            style={{ alignContent: "center", opacity: 0.8 }}
           />
           <Text>{"  "}</Text>
           <Text style={{ color: "white" }}> {user.duration}</Text>
