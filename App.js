@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   StyleSheet,
   Button,
@@ -8,10 +9,12 @@ import {
   Alert,
   Image,
   TextInput,
+  Linking,
 } from "react-native";
 
+import ButtonSpinner from "react-native-button-spinner";
 import Icons from "react-native-vector-icons/MaterialCommunityIcons";
-import Apple from "react-native-vector-icons/AntDesign";
+import Apple from "react-native-vector-icons/FontAwesome5";
 import Buttons from "./components/view/Buttons";
 import { LinearGradient } from "expo-linear-gradient";
 import image from "./components/view/good1.png";
@@ -102,7 +105,9 @@ export default function App() {
       resolve("hi");
     });
   };
-
+  const onClickImage = () => {
+    Linking.openURL("https://open.kakao.com/o/sA4uughd");
+  };
   return (
     <LinearGradient colors={backGradient[2].color} style={styles.container}>
       <SafeAreaView style={styles.items}>
@@ -135,8 +140,22 @@ export default function App() {
         {users.map((user) => (
           <Buttons user={user} key={user.mode} id={id} pw={pw}></Buttons>
         ))}
-        <View style={styles.blankView}></View>
-        <Image style={styles.stretch} source={image} />
+
+        <ButtonSpinner
+          style={styles.buttonBorder}
+          textButton={"Text Button"}
+          onPress={onClickImage}
+        >
+          <Apple
+            name="comment-alt"
+            size={20}
+            color="black"
+            style={{ alignContent: "center" }}
+          />
+          <Text>{"  "}</Text>
+          <Text style={{ color: "white" }}>개발자 건의사항</Text>
+        </ButtonSpinner>
+        <Image onClick={onClickImage} style={styles.stretch} source={image} />
         <Image style={styles.stretch2} source={image2} />
       </SafeAreaView>
     </LinearGradient>
@@ -179,7 +198,7 @@ const styles = StyleSheet.create({
   stretch: {
     alignSelf: "flex-end",
     marginLeft: 10,
-    flexDirection: "row-reverse",
+    flexDirection: "row",
     flex: 3,
     width: 50,
     height: 60,
@@ -207,5 +226,11 @@ const styles = StyleSheet.create({
   },
   inputWithString: {
     flexDirection: "row",
+  },
+  buttonBorder: {
+    color: "white",
+    borderColor: "white",
+    borderRadius: 10,
+    borderWidth: 0.7,
   },
 });
