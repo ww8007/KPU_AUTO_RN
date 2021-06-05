@@ -26,7 +26,7 @@ export default function Buttons({ user, id, pw }) {
           resolve(response);
         })
         .catch(function (error) {
-          onChangeError("실패");
+          onChangeResult("완료");
           resolve(error);
         });
     });
@@ -60,7 +60,7 @@ export default function Buttons({ user, id, pw }) {
             name="checkcircleo"
             size={20}
             color="white"
-            style={{ height: "120%", marginBottom: -2 }}
+            style={{ alignContent: "center" }}
           />
           <Text>{"  "}</Text>
           <Text style={{ color: "white" }}> 신청 완료</Text>
@@ -75,7 +75,7 @@ export default function Buttons({ user, id, pw }) {
             name="closecircleo"
             size={20}
             color="white"
-            style={{ height: "120%", marginBottom: -2 }}
+            style={{ alignContent: "center" }}
           />
           <Text>{"  "}</Text>
           <Text style={{ color: "white" }}>{error}</Text>
@@ -86,7 +86,7 @@ export default function Buttons({ user, id, pw }) {
             name={user.icon}
             size={20}
             color={user.color}
-            style={{ height: "120%", marginBottom: -2, opacity: 0.8 }}
+            style={{ alignContent: "center", opacity: 0.8 }}
           />
           <Text>{"  "}</Text>
           <Text style={{ color: "white" }}> {user.duration}</Text>
