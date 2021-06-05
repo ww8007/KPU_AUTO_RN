@@ -11,47 +11,56 @@ export default function Buttons({ user, id, pw }) {
   const awaitSendRequest = () => {
     return new Promise((resolve, reject) => {
       const mode = user.mode;
-      oneDay({ id, pw, mode })
-        .then(function (response) {
-          let result = response.data.body;
-          const obj = JSON.parse(result);
-          if (obj.message === "외박신청 완료") {
-            onChangeResult("완료");
-          } else if (obj.message === "로그인 실패") {
-            onChangeError("로그인 실패");
-          } else {
-            onChangeError("서버 오류");
-            resolve(error);
-          }
-          resolve(response);
-        })
-        .catch(function (error) {
-          onChangeResult("완료");
-          resolve(error);
-        });
+      if (id === "" || pw === "") {
+        Alert.alert("ID와 PW를 입력해주세요");
+        return resolve("no id or pw");
+      }
+      Alert.alert(
+        user.duration,
+        "신청하시겠습니까?",
+
+        [
+          {
+            text: "취소",
+            onPress: () => {
+              return new Promise(function (res, rej) {
+                res("good");
+              }).then(function (response) {
+                resolve("good");
+              });
+            },
+            style: "cancel",
+          },
+          {
+            text: "확인",
+            onPress: () =>
+              oneDay({ id, pw, mode })
+                .then(function (response) {
+                  let result = response.data.body;
+                  const obj = JSON.parse(result);
+                  if (obj.message === "외박신청 완료") {
+                    onChangeResult("완료");
+                  } else if (obj.message === "로그인 실패") {
+                    onChangeError("로그인 실패");
+                  } else {
+                    onChangeError("서버 오류");
+                    resolve(error);
+                  }
+                  resolve(response);
+                })
+                .catch(function (error) {
+                  onChangeResult("완료");
+                  resolve(error);
+                }),
+          },
+        ],
+        { cancelable: false }
+      );
     });
   };
   const onChangeRe = () => {
     onChangeError("");
   };
-  const createTwoButtonAlert = () =>
-    Alert.alert(
-      user.duration,
-      "신청하시겠습니까?",
-
-      [
-        {
-          text: "취소",
-          onPress: () => onPressOk("f"),
-          style: "cancel",
-        },
-        {
-          text: "확인",
-          onPress: () => onPressOk("t"),
-        },
-      ],
-      { cancelable: false }
-    );
   return (
     <>
       {result ? (
