@@ -108,9 +108,7 @@ export default function App() {
     Linking.openURL('https://open.kakao.com/o/sA4uughd');
   };
   const onClickToSurvey = () => {
-    Linking.openURL(
-      'https://form.office.naver.com/form/responseView.cmd?formkey=Y2UwMmFjNDYtMzBlMy00NDE5LWI4YWQtMmYxYTcwNGFlMTQ1&sourceId=urlshare'
-    );
+    Linking.openURL('http://naver.me/GKoSugrJ');
   };
   return (
     <LinearGradient colors={backGradient[2].color} style={styles.container}>
