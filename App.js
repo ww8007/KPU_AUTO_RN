@@ -1,5 +1,4 @@
-import React from "react";
-
+import React from 'react';
 import {
   StyleSheet,
   Button,
@@ -10,86 +9,86 @@ import {
   Image,
   TextInput,
   Linking,
-} from "react-native";
+} from 'react-native';
 
-import ButtonSpinner from "react-native-button-spinner";
-import Icons from "react-native-vector-icons/MaterialCommunityIcons";
-import Apple from "react-native-vector-icons/FontAwesome5";
-import Buttons from "./components/view/Buttons";
-import { LinearGradient } from "expo-linear-gradient";
-import image from "./components/view/good1.png";
-import image2 from "./components/view/hi.png";
+import ButtonSpinner from 'react-native-button-spinner';
+import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Apple from 'react-native-vector-icons/FontAwesome5';
+import Buttons from './components/view/Buttons';
+import { LinearGradient } from 'expo-linear-gradient';
+import image from './components/view/good1.png';
+import image2 from './components/view/hi.png';
 // axios 인스턴스 생성
 
 const Separator = () => <View style={styles.separator} />;
 
 export default function App() {
-  const [id, onChangeText] = React.useState("");
-  const [pw, onChangePw] = React.useState("");
+  const [id, onChangeText] = React.useState('');
+  const [pw, onChangePw] = React.useState('');
   const [backGradient, onChangeGradient] = React.useState([
     {
-      color: ["#00008C", "#3b5998", "#4c669f"],
+      color: ['#00008C', '#3b5998', '#4c669f'],
     },
     {
-      color: ["#000000", "#434343"],
+      color: ['#000000', '#434343'],
     },
     {
-      color: ["#000C40", "#F0F2F0"],
+      color: ['#000C40', '#F0F2F0'],
     },
     {
-      color: ["#F0F2F0", "#000C40"],
+      color: ['#F0F2F0', '#000C40'],
     },
     {
-      color: ["#000046", "#1CB5E0"],
+      color: ['#000046', '#1CB5E0'],
     },
     {
-      color: ["#16222A", "#3A6073"],
+      color: ['#16222A', '#3A6073'],
     },
     {
-      color: ["#191654", "#43C6AC"],
+      color: ['#191654', '#43C6AC'],
     },
     {
-      color: ["#43C6AC", "#191654"],
+      color: ['#43C6AC', '#191654'],
     },
     {
-      color: ["#2ebf91", "#8360c3"],
+      color: ['#2ebf91', '#8360c3'],
     },
   ]);
 
   const [users, setUsers] = React.useState([
     {
       mode: 1,
-      duration: "1일 외박 신청",
-      icon: "carrot",
-      color: "#E56D29",
+      duration: '1일 외박 신청',
+      icon: 'carrot',
+      color: '#E56D29',
     },
     {
       mode: 2,
-      duration: "1주 외박 신청",
-      icon: "seedling",
-      color: "green",
+      duration: '1주 외박 신청',
+      icon: 'seedling',
+      color: 'green',
     },
     {
       mode: 3,
-      duration: "2주 외박 신청",
-      icon: "cannabis",
-      color: "#FF4646",
+      duration: '2주 외박 신청',
+      icon: 'cannabis',
+      color: '#FF4646',
     },
     {
       mode: 4,
-      duration: "한달 외박 신청",
-      icon: "tint",
-      color: "#00E1FF",
+      duration: '한달 외박 신청',
+      icon: 'tint',
+      color: '#00E1FF',
     },
   ]);
 
-  const [mode, onChangeMode] = React.useState("1");
+  const [mode, onChangeMode] = React.useState('1');
   React.useEffect(() => {
     Alert.alert(
-      "-주의사항-",
-      "서버오류가 나올 시 KPU 홈페이지가 잘 동작 하는지 확인해주세요.",
+      '-공지사항-',
+      '설문조사 한 번씩만 부탁드릴게요!!!',
 
-      [{ text: "확인", onPress: () => console.log("ok") }],
+      [{ text: '확인', onPress: () => console.log('ok') }],
       { cancelable: false }
     );
   }, []);
@@ -101,12 +100,17 @@ export default function App() {
       //   onChangeResult(message);
       //   resolve(message);
       // });
-      onChangeResult("외박신청 완료");
-      resolve("hi");
+      onChangeResult('외박신청 완료');
+      resolve('hi');
     });
   };
-  const onClickImage = () => {
-    Linking.openURL("https://open.kakao.com/o/sA4uughd");
+  const onClickMessageToMe = () => {
+    Linking.openURL('https://open.kakao.com/o/sA4uughd');
+  };
+  const onClickToSurvey = () => {
+    Linking.openURL(
+      'https://form.office.naver.com/form/responseView.cmd?formkey=Y2UwMmFjNDYtMzBlMy00NDE5LWI4YWQtMmYxYTcwNGFlMTQ1&sourceId=urlshare'
+    );
   };
   return (
     <LinearGradient colors={backGradient[2].color} style={styles.container}>
@@ -143,19 +147,37 @@ export default function App() {
 
         <ButtonSpinner
           style={styles.buttonBorder}
-          textButton={"Text Button"}
-          onPress={onClickImage}
+          textButton={'Text Button'}
+          onPress={onClickMessageToMe}
         >
           <Apple
             name="comment-alt"
-            size={20}
+            size={17}
             color="black"
-            style={{ alignContent: "center" }}
+            style={{ alignContent: 'center' }}
           />
-          <Text>{"  "}</Text>
-          <Text style={{ color: "white" }}>개발자 건의사항</Text>
+          <Text>{'  '}</Text>
+          <Text style={{ color: 'white' }}>개발자 건의사항</Text>
         </ButtonSpinner>
-        <Image onClick={onClickImage} style={styles.stretch} source={image} />
+        <ButtonSpinner
+          style={styles.buttonBorder}
+          textButton={'Text Button'}
+          onPress={onClickToSurvey}
+        >
+          <Apple
+            name="check"
+            size={17}
+            color="black"
+            style={{ alignContent: 'center' }}
+          />
+          <Text>{'  '}</Text>
+          <Text style={{ color: 'white' }}>설문 조사</Text>
+        </ButtonSpinner>
+        <Image
+          onClick={onClickToSurvey}
+          style={styles.stretch}
+          source={image}
+        />
         <Image style={styles.stretch2} source={image2} />
       </SafeAreaView>
     </LinearGradient>
@@ -171,23 +193,23 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
   },
   title: {
-    textAlign: "center",
+    textAlign: 'center',
     marginVertical: 8,
-    color: "#FFD228",
+    color: '#FFD228',
   },
   fixToText: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   separator: {
     marginVertical: 8,
-    borderBottomColor: "#737373",
+    borderBottomColor: '#737373',
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   inputIdPw: {
     height: 40,
-    color: "white",
-    borderColor: "white",
+    color: 'white',
+    borderColor: 'white',
     borderRadius: 10,
     borderWidth: 0.5,
     marginRight: 15,
@@ -196,40 +218,40 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   stretch: {
-    alignSelf: "flex-end",
+    alignSelf: 'flex-end',
     marginLeft: 10,
-    flexDirection: "row",
+    flexDirection: 'row',
     flex: 3,
     width: 50,
     height: 60,
-    resizeMode: "stretch",
+    resizeMode: 'stretch',
   },
   stretch2: {
-    alignSelf: "center",
-    resizeMode: "stretch",
+    alignSelf: 'center',
+    resizeMode: 'stretch',
     marginTop: -3,
 
     flex: 4,
-    width: "120%",
+    width: '120%',
     marginBottom: -40,
   },
   inputString: {
     flex: 1,
     paddingLeft: 13,
 
-    color: "white",
+    color: 'white',
   },
   blankView: {
     flex: 3,
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
   },
   inputWithString: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   buttonBorder: {
-    color: "white",
-    borderColor: "white",
+    color: 'white',
+    borderColor: 'white',
     borderRadius: 10,
     borderWidth: 0.7,
   },

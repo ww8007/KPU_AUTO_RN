@@ -23,7 +23,11 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "babel-plugin-react-native-classname-to-style": "^1.2.2",
+    "babel-plugin-react-native-platform-specific-extensions": "^1.1.1",
+    "node-sass": "^6.0.0",
+    "react-native-sass-transformer": "^1.4.0"
   },
   "private": true
 }
