@@ -74,19 +74,19 @@ export default function App() {
       icon: 'cannabis',
       color: '#FF4646',
     },
-    {
-      mode: 4,
-      duration: '한달 외박 신청',
-      icon: 'tint',
-      color: '#00E1FF',
-    },
+    // {
+    //   mode: 4,
+    //   duration: '한달 외박 신청',
+    //   icon: 'tint',
+    //   color: '#00E1FF',
+    // },
   ]);
 
   const [mode, onChangeMode] = React.useState('1');
   React.useEffect(() => {
     Alert.alert(
-      '-공지사항-',
-      '설문조사 한 번씩만 부탁드릴게요!!!',
+      '-Update-',
+      '1. 신청완료, 실패, 로그인 실패에 대한 결과를 \n 이제 버튼이 아닌 알림으로 확인이 가능합니다.\n 2. 한달 신청에 문제가 있어 수정 중에 있습니다.',
 
       [{ text: '확인', onPress: () => console.log('ok') }],
       { cancelable: false }
