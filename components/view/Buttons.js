@@ -18,7 +18,6 @@ export default function Buttons({ user, id, pw }) {
       Alert.alert(
         user.duration,
         '신청하시겠습니까?',
-
         [
           {
             text: '취소',
@@ -39,10 +38,15 @@ export default function Buttons({ user, id, pw }) {
                   let result = response.data.body;
                   const obj = JSON.parse(result);
                   if (obj.message === '외박신청 완료') {
+                    Alert.alert('신청이 완료 되었습니다.');
                     onChangeResult('완료');
                   } else if (obj.message === '로그인 실패') {
+                    Alert.alert(
+                      '로그인이 실패하였습니다. 아이디와 비밀번호를 확인해주세요'
+                    );
                     onChangeError('로그인 실패');
                   } else {
+                    Alert.alert('KPU Sever down');
                     onChangeError('서버 오류');
                     resolve(error);
                   }
