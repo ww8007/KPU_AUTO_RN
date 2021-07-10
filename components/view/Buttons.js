@@ -217,8 +217,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
-    paddingLeft: 50,
-    paddingRight: 50,
+    paddingLeft: 60,
+    paddingRight: 60,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -233,8 +233,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F194FF',
     borderRadius: 20,
     padding: 10,
-    paddingLeft: 50,
-    paddingRight: 50,
+    paddingRight: 30,
+    paddingLeft: 30,
     elevation: 2,
   },
   textStyle: {
