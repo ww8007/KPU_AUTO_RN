@@ -18,7 +18,6 @@ import Buttons from './components/view/Buttons';
 import { LinearGradient } from 'expo-linear-gradient';
 import image from './components/view/good1.png';
 import image2 from './components/view/hi.png';
-import star from './star.scss';
 
 // axios 인스턴스 생성
 
