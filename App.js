@@ -18,6 +18,7 @@ import Buttons from './components/view/Buttons';
 import { LinearGradient } from 'expo-linear-gradient';
 import image from './components/view/good1.png';
 import image2 from './components/view/hi.png';
+
 // axios 인스턴스 생성
 
 const Separator = () => <View style={styles.separator} />;
@@ -30,7 +31,7 @@ export default function App() {
       color: ['#00008C', '#3b5998', '#4c669f'],
     },
     {
-      color: ['#000000', '#434343'],
+      color: ['#1b2735', '0%', '#090a0f'],
     },
     {
       color: ['#000C40', '#F0F2F0'],
@@ -59,20 +60,20 @@ export default function App() {
     {
       mode: 1,
       duration: '1일 외박 신청',
-      icon: 'carrot',
-      color: '#E56D29',
+      icon: 'cannabis',
+      color: '#FF4646',
     },
     {
       mode: 2,
       duration: '1주 외박 신청',
-      icon: 'seedling',
-      color: 'green',
+      icon: 'carrot',
+      color: '#E56D29',
     },
     {
       mode: 3,
       duration: '2주 외박 신청',
-      icon: 'cannabis',
-      color: '#FF4646',
+      icon: 'seedling',
+      color: 'green',
     },
     // {
     //   mode: 4,
@@ -86,24 +87,24 @@ export default function App() {
   React.useEffect(() => {
     Alert.alert(
       '-Update-',
-      '1. 신청완료, 실패, 로그인 실패에 대한 결과를 \n 이제 버튼이 아닌 알림으로 확인이 가능합니다.\n 2. 한달 신청에 문제가 있어 수정 중에 있습니다.',
+      '1. 신청완료, 실패, 로그인 실패에 대한 결과를 이제 결과가 버튼이 아닌 팝업 형식으로 표현 됩니다.\n 2. 한달 신청에 문제가 있어 수정 중에 있습니다.\n 3.속도 개선은 백엔드 구축 중 입니다.',
 
-      [{ text: '확인', onPress: () => console.log('ok') }],
+      [{ text: '확인' }],
       { cancelable: false }
     );
   }, []);
 
-  const awaitSendRequest = () => {
-    return new Promise((resolve, reject) => {
-      // oneDay({ id, pw, mode }).then(function (response) {
-      //   const { message } = JSON.parse(response.data.body);
-      //   onChangeResult(message);
-      //   resolve(message);
-      // });
-      onChangeResult('외박신청 완료');
-      resolve('hi');
-    });
-  };
+  // const awaitSendRequest = () => {
+  //   return new Promise((resolve, reject) => {
+  //     // oneDay({ id, pw, mode }).then(function (response) {
+  //     //   const { message } = JSON.parse(response.data.body);
+  //     //   onChangeResult(message);
+  //     //   resolve(message);
+  //     // });
+  //     onChangeResult('외박신청 완료');
+  //     resolve('hi');
+  //   });
+  // };
   const onClickMessageToMe = () => {
     Linking.openURL('https://open.kakao.com/o/sA4uughd');
   };

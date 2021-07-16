@@ -22,6 +22,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react-native-animate-loading-button": "^1.0.3",
     "react-native-button-spinner": "^0.1.4",
+    "react-native-cli": "^2.0.1",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.4"
@@ -30,7 +31,7 @@
     "@babel/core": "^7.9.0",
     "babel-plugin-react-native-classname-to-style": "^1.2.2",
     "babel-plugin-react-native-platform-specific-extensions": "^1.1.1",
-    "node-sass": "^6.0.0",
+    "node-sass": "^6.0.1",
     "react-native-sass-transformer": "^1.4.0"
   },
   "private": true
