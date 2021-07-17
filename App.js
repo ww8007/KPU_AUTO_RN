@@ -75,19 +75,19 @@ export default function App() {
       icon: 'seedling',
       color: 'green',
     },
-    // {
-    //   mode: 4,
-    //   duration: '한달 외박 신청',
-    //   icon: 'tint',
-    //   color: '#00E1FF',
-    // },
+    {
+      mode: 4,
+      duration: '한달 외박 신청',
+      icon: 'tint',
+      color: '#00E1FF',
+    },
   ]);
 
   const [mode, onChangeMode] = React.useState('1');
   React.useEffect(() => {
     Alert.alert(
-      '-Update-',
-      '1. 신청완료, 실패, 로그인 실패에 대한 결과를 이제 결과가 버튼이 아닌 팝업 형식으로 표현 됩니다.\n 2. 한달 신청에 문제가 있어 수정 중에 있습니다.\n 3.속도 개선은 백엔드 구축 중 입니다.',
+      '-Notice-',
+      '1. 한 달 외박 신청시 시간제한으로 인해 완료 메시지가 안뜨는 경우가 있습니다.(오류로 표현)\n  2. 24 : 00 ~ 01 : 00 까지 통정시가 열리지 않으므로 이 시간대를 피해서 신청해주세요! ',
 
       [{ text: '확인' }],
       { cancelable: false }
