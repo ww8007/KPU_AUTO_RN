@@ -37,6 +37,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "id, pw는 서버에 저장되지 않고 암호화되어서 전송되니 걱정 안하셔도 됩니다.😃\n\n1차 업데이트 로그 \n1. 각 case에 대한 alert 추가\n2. backend 4주 외박 신청 오류 -> 수정중"
+    "description": "id, pw는 서버에 저장되지 않고 암호화되어서 전송되니 걱정 안하셔도 됩니다.😃\n\n1차 업데이트 로그 \n1. 각 case에 대한 alert 추가\n2. backend 4주 외박 신청 오류 -> 수정중\n2차 업데이트 로그\n1. 4주 오류 및 개별적 오류 조금 해결"
   }
 }
