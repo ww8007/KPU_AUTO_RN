@@ -10,7 +10,8 @@ import {
 import ButtonSpinner from 'react-native-button-spinner';
 import Apple from 'react-native-vector-icons/FontAwesome5';
 import Apple2 from 'react-native-vector-icons/AntDesign';
-import { oneDay, getDummy, getDummy2 } from '../../lib/api/post';
+import { oneDay } from '../../lib/api/post';
+// eslint-disable-next-line react/prop-types
 export default function Buttons({ user, id, pw }) {
   const [result, onChangeResult] = React.useState('');
   const [error, onChangeError] = React.useState('');
@@ -35,7 +36,7 @@ export default function Buttons({ user, id, pw }) {
           {
             text: '취소',
             onPress: () => {
-              return new Promise(function (res, rej) {
+              return new Promise(function (res) {
                 res('good');
               }).then(function (response) {
                 resolve('good');
