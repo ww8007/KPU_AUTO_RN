@@ -31,6 +31,8 @@
     "@babel/core": "^7.9.0",
     "babel-plugin-react-native-classname-to-style": "^1.2.2",
     "babel-plugin-react-native-platform-specific-extensions": "^1.1.1",
+    "eslint": "^7.30.0",
+    "eslint-plugin-react": "^7.24.0",
     "node-sass": "^6.0.1",
     "react-native-sass-transformer": "^1.4.0"
   },
